@@ -9,13 +9,13 @@ script:
   - docker run -e CI=true panos/react-test npm test
 
 after_success:
-  - docker build -t panos/multi-client ./client
-  - docker build -t panos/multi-nginx ./nginx
-  - docker build -t panos/multi-server ./server
-  - docker build -t panos/multi-worker ./worker
+  - docker build -t panos686/multi-client ./client
+  - docker build -t panos686/multi-nginx ./nginx
+  - docker build -t panos686/multi-server ./server
+  - docker build -t panos686/multi-worker ./worker
   # Log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-  - docker push panos/multi-client
-  - docker push panos/multi-nginx
-  - docker push panos/multi-server
-  - docker push panos/multi-worker
+  - docker push panos686/multi-client
+  - docker push panos686/multi-nginx
+  - docker push panos686/multi-server
+  - docker push panos686/multi-worker
